@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Tarjeta */
+.card {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  margin-bottom: 35px;
+  font-size: 28px;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+button {
+  font-size: 18px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+  position: relative;
+}
+
+#message {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+/* Corazones */
+#hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: floatUp 3s ease-in forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-220px) scale(1.4);
+  }
+}
+
+/* Temblor NO */
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+/* Pantalla final */
+.final {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 230, 240, 0.96);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  animation: fadeIn 0.6s ease;
+}
+
+.final h2 {
+  font-size: 38px;
+  color: #ff4d6d;
+  font-weight: 800;
+  letter-spacing: 2px;
+  animation: popIn 0.8s ease forwards;
+}
+
+.final small {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #ff7a96;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .final h2 {
+    font-size: 30px;
+  }
+}
